@@ -18,6 +18,13 @@ public class Premiun extends marcas {
     public Premiun() {
     }
 
+    public Premiun(String nombre_de_su_división_deportiva, String nombre_de_su_división_de_lujo, String tipo) {
+        this.nombre_de_su_división_deportiva = nombre_de_su_división_deportiva;
+        this.nombre_de_su_división_de_lujo = nombre_de_su_división_de_lujo;
+        this.tipo = tipo;
+    }
+    
+
     public Premiun(String nombre, String lema, int año_de_fundacion, int año_que_seintegro, String Fundador, int total_ventas, String Presidente, int num_modelos) {
         super(nombre, lema, año_de_fundacion, año_que_seintegro, Fundador, total_ventas, Presidente, num_modelos);
     }

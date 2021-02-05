@@ -156,8 +156,46 @@ public class Lab3_KevinRodriguezJoseLagos {
                             int ventas = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de ventas anuales"));
                             String ceo = JOptionPane.showInputDialog("Ingrese el nombre del CEO o el presidente");
                             int modelos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de modelos"));
+                            marcas x = new marcas(nombre, slogan, año, año_i, fundador, ventas, ceo, modelos);
 
-                            listado_marca.add(new marcas(nombre, slogan, año, año_i, fundador, ventas, ceo, modelos));
+                            int op = Integer.parseInt("Ingrese la clase de marca\n"
+                                    + "1. Premium\n"
+                                    + "2. Generalista");
+                            if (op == 1) {
+                                String div_dep = JOptionPane.showInputDialog("Ingrese nombre de la division deportiva");
+                                String div_lujo = JOptionPane.showInputDialog("Ingrese nombre de la division de lujo");
+                                int carroceria = Integer.parseInt(JOptionPane.showInputDialog("Ingrese tipo de carroceria\n"
+                                        + "1. Sedán\n"
+                                        + "2. Hatchback\n"
+                                        + "3. Coupé"));
+                                switch (carroceria) {
+                                    case 1: {
+                                        listado_marca.add(new Premiun(div_dep, div_lujo, "Sedan"));
+                                        break;
+                                    }
+                                    case 2: {
+                                        listado_marca.add(new Premiun(div_dep, div_lujo, "Hatchback"));
+                                        break;
+                                    }
+                                    case 3: {
+                                        listado_marca.add(new Premiun(div_dep, div_lujo, "Coupé"));
+                                        break;
+                                    }
+                                }
+                            } else if (op == 2) {
+                                int Op = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la marca su tipo\n"
+                                        + "1. Low-cost\n"
+                                        + "2.Semi-premium"));
+                                switch (Op) {
+                                    case 1: {
+                                        listado_marca.add(new Generalista("low-cost"));
+                                    }
+                                    case 2: {
+                                        listado_marca.add(new Generalista("semi-premium"));
+                                    }
+                                }
+                            }
+
                             break;
                         }
                         case 2: {
@@ -360,13 +398,89 @@ public class Lab3_KevinRodriguezJoseLagos {
                         case 1: {
                             String nombre = JOptionPane.showInputDialog("Ingrese el nombre de la fabrica");
                             String ubicacion = JOptionPane.showInputDialog("Ingrese la ubicacion");
-                            int cantida_max = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad maxima de modelos que se peuden fabricar"));
+                            int cantidad_max = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad maxima de modelos que se peuden fabricar"));
                             String carroceria = JOptionPane.showInputDialog("Ingrese el tipo de carrocerría mas fabricada");
                             int empleados = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de empleados"));
                             String marcas = JOptionPane.showInputDialog("Ingrese nombre de marca que mas se ensamblan");
                             int cantidad_auto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese cantidad de autos que se fabrican"));
 
-                            listado_fabric.add(new fabricas(nombre, ubicacion, cantidad_max, carroceria, empleados, marcas, cantidad_auto));
+                            listado_fabric.add(new fabricas(nombre, ubicacion, cantidad_max, carroceria, empleados, cantidad_auto));
+                        }
+                        case 2: {
+                            int position = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la poscion de la fabrica a modificar"));
+
+                            if (listado_fabric.get(position) instanceof fabricas) {
+                                int posicion = Integer.parseInt(JOptionPane.showInputDialog("1. Nombre\n"
+                                        + "2. Ubicacion\n"
+                                        + "3. Cantidad maxima de modelos que se pueden fabricar\n"
+                                        + "4. Carrocería\n"
+                                        + "5. Numero de empleados\n"
+                                        + "6. Cantidad de autos que se fabrican actualmente\n"
+                                        + "Ingrese su opcion"));
+                                switch (posicion) {
+                                    case 1: {
+                                        String aux = JOptionPane.showInputDialog("Ingrese el nuevo nombre");
+                                        ((fabricas) listado_fabric.get(position)).setNombre_fabrica(aux);
+                                        break;
+                                    }
+                                    case 6: {
+                                        int aux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad maxima de modelos"));
+                                        ((fabricas) listado_fabric.get(position)).setCantidad_maxima_fabricar(aux);
+                                        break;
+                                    }
+                                    case 3: {
+                                        String aux = JOptionPane.showInputDialog("Ingrese la carrocería");
+                                        ((fabricas) listado_fabric.get(position)).setTipo_de_carroceria(aux);
+                                        break;
+                                    }
+                                    case 4: {
+                                        int aux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de empleados"));
+                                        ((fabricas) listado_fabric.get(position)).setCant_Empleados(aux);
+                                        break;
+                                    }
+                                    case 5: {
+                                        int aux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de autos en fabrica"));
+                                        ((fabricas) listado_fabric.get(position)).setCant_Autos(aux);
+                                        break;
+                                    }
+                                    case 2: {
+                                        String aux = JOptionPane.showInputDialog("Ingrese la ubicacion");
+                                        ((fabricas) listado_fabric.get(position)).setUbicacion(aux);
+                                        break;
+                                    }
+                                    default: {
+                                        JOptionPane.showMessageDialog(null, "Opcion invalida");
+                                        break;
+                                    }
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "La posicion que ingreso no se encuentra en la lista o es invalida");
+                            }
+                            break;
+                        }
+                        case 3: {
+                            int position = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion de la corporacion que quiere eliminar"));
+
+                            if (listado_fabric.get(position) instanceof fabricas) {
+                                listado_fabric.remove(position);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "La posicion que ingreso no se encuentra en la lista o es invalida");
+                            }
+                            break;
+                        }
+                        case 4: {
+                            String salida = "";
+                            for (Object t : listado_fabric) {
+                                if (t instanceof fabricas) {
+                                    salida += listado_fabric.indexOf(t) + " - " + t + "\n";
+                                }
+                            }
+                            JOptionPane.showMessageDialog(null, salida);
+                            break;
+                        }
+                        default: {
+
+                            break;
                         }
                     }
                     break;
