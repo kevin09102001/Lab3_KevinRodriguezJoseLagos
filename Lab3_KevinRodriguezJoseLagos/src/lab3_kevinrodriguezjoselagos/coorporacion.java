@@ -18,7 +18,7 @@ public class coorporacion {
     private String Presidente;
     private int total_empleados;
     private int cantidad_de_autos;
-    private ArrayList <marcas> lista=new ArrayList();
+     ArrayList <marcas> lista=new ArrayList();
 
     public coorporacion() {
     }
@@ -90,7 +90,8 @@ public class coorporacion {
 
     @Override
     public String toString() {
-        return "coorporacion{" + "nombre=" + nombre + ", sede=" + sede + ",Año_fundacion=" + año_fundacion + ", Presidente=" + Presidente + ", total_empleados=" + total_empleados + ", cantidad_de_autos=" + cantidad_de_autos + ", marcas=" + lista + '}';
+        return "coorporacion{" + "nombre=" + nombre + ", sede=" + sede + ", a\u00f1o_fundacion=" + año_fundacion + ", Presidente=" + Presidente + ", total_empleados=" + total_empleados + ", cantidad_de_autos=" + cantidad_de_autos + ", lista=" + lista + '}';
     }
-    
+
+   
 }
