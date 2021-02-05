@@ -22,7 +22,7 @@ public class Lab3_KevinRodriguezJoseLagos {
         ArrayList listado_corp = new ArrayList();
         ArrayList listado_marca = new ArrayList();
         ArrayList listado_model = new ArrayList();
-        ArrayList listado_farbic = new ArrayList();
+        ArrayList listado_fabric = new ArrayList();
         ArrayList listado_divTec = new ArrayList();
         ArrayList listado_ttl = new ArrayList();
         while (rep == 1) {
@@ -227,7 +227,7 @@ public class Lab3_KevinRodriguezJoseLagos {
                         case 3: {
                             int position = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion de la corporacion que quiere eliminar"));
 
-                            if (listado_marca.get(position) instanceof coorporacion) {
+                            if (listado_marca.get(position) instanceof marcas) {
                                 listado_marca.remove(position);
                             } else {
                                 JOptionPane.showMessageDialog(null, "La posicion que ingreso no se encuentra en la lista o es invalida");
@@ -237,7 +237,7 @@ public class Lab3_KevinRodriguezJoseLagos {
                         case 4: {
                             String salida = "";
                             for (Object t : listado_marca) {
-                                if (t instanceof coorporacion) {
+                                if (t instanceof marcas) {
                                     salida += listado_marca.indexOf(t) + " - " + t + "\n";
                                 }
                             }
@@ -271,15 +271,75 @@ public class Lab3_KevinRodriguezJoseLagos {
                             break;
                         }
                         case 2: {
+                            int position = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la poscion del modelo a modificar"));
 
+                            if (listado_model.get(position) instanceof modelos) {
+                                int posicion = Integer.parseInt(JOptionPane.showInputDialog("1. Nombre\n"
+                                        + "2. Año de fabricacion\n"
+                                        + "3. Tipo de motor\n"
+                                        + "4. Cilindrada del motor\n"
+                                        + "5. Precio del modelo\n"
+                                        + "6. Tecnologías\n"
+                                        + "Ingrese su opcion"));
+                                switch (posicion) {
+                                    case 1: {
+                                        String aux = JOptionPane.showInputDialog("Ingrese el nuevo nombre");
+                                        ((modelos) listado_model.get(position)).setNombre_Modelo(aux);
+                                        break;
+                                    }
+                                    case 2: {
+                                        int aux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el año de fabricacion"));
+                                        ((modelos) listado_model.get(position)).setAño_Fabricacion(aux);
+                                        break;
+                                    }
+                                    case 3: {
+                                        String aux = JOptionPane.showInputDialog("Ingrese el tipo de motor");
+                                        ((modelos) listado_model.get(position)).setTipo_de_motor(aux);
+                                        break;
+                                    }
+                                    case 4: {
+                                        int aux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cilindrada del motor"));
+                                        ((modelos) listado_model.get(position)).setCilindrada_del_motor(aux);
+                                        break;
+                                    }
+                                    case 5: {
+                                        int aux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el precio"));
+                                        ((modelos) listado_model.get(position)).setPrecio(aux);
+                                        break;
+                                    }
+                                    case 6: {
+                                        String aux = JOptionPane.showInputDialog("Ingrese la tecnologia");
+                                        ((modelos) listado_model.get(position)).setTecologias(aux);
+                                        break;
+                                    }
+                                    default: {
+                                        JOptionPane.showMessageDialog(null, "Opcion invalida");
+                                        break;
+                                    }
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "La posicion que ingreso no se encuentra en la lista o es invalida");
+                            }
                             break;
                         }
                         case 3: {
+                            int position = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion de la corporacion que quiere eliminar"));
 
+                            if (listado_model.get(position) instanceof modelos) {
+                                listado_model.remove(position);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "La posicion que ingreso no se encuentra en la lista o es invalida");
+                            }
                             break;
                         }
                         case 4: {
-
+                            String salida = "";
+                            for (Object t : listado_model) {
+                                if (t instanceof modelos) {
+                                    salida += listado_model.indexOf(t) + " - " + t + "\n";
+                                }
+                            }
+                            JOptionPane.showMessageDialog(null, salida);
                             break;
                         }
                         default: {
@@ -290,7 +350,25 @@ public class Lab3_KevinRodriguezJoseLagos {
                     break;
                 }
                 case 4: {
+                    int option = Integer.parseInt(JOptionPane.showInputDialog("      Fabricas\n"
+                            + "1. Agregar Fabrica\n"
+                            + "2. Modificar Fabrica\n"
+                            + "3. Eliminar Fabrica\n"
+                            + "4. Listar Fabrica\n"
+                            + "Ingrese su opcion"));
+                    switch (option) {
+                        case 1: {
+                            String nombre = JOptionPane.showInputDialog("Ingrese el nombre de la fabrica");
+                            String ubicacion = JOptionPane.showInputDialog("Ingrese la ubicacion");
+                            int cantida_max = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad maxima de modelos que se peuden fabricar"));
+                            String carroceria = JOptionPane.showInputDialog("Ingrese el tipo de carrocerría mas fabricada");
+                            int empleados = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de empleados"));
+                            String marcas = JOptionPane.showInputDialog("Ingrese nombre de marca que mas se ensamblan");
+                            int cantidad_auto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese cantidad de autos que se fabrican"));
 
+                            listado_fabric.add(new fabricas(nombre, ubicacion, cantidad_max, carroceria, empleados, marcas, cantidad_auto));
+                        }
+                    }
                     break;
                 }
                 case 5: {
@@ -311,5 +389,4 @@ public class Lab3_KevinRodriguezJoseLagos {
             }
         }
     }
-
 }
