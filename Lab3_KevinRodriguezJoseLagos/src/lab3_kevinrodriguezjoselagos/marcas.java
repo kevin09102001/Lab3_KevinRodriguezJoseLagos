@@ -96,6 +96,11 @@ public class marcas {
     public void setNum_modelos(int num_modelos) {
         this.num_modelos = num_modelos;
     }
+
+    @Override
+    public String toString() {
+        return "marcas{" + "nombre=" + nombre + ", lema=" + lema + ", a\u00f1o_de_fundacion=" + año_de_fundacion + ", a\u00f1o_que_seintegro=" + año_que_seintegro + ", Fundador=" + Fundador + ", total_ventas=" + total_ventas + ", Presidente=" + Presidente + ", num_modelos=" + num_modelos + '}';
+    }
     
     
 }

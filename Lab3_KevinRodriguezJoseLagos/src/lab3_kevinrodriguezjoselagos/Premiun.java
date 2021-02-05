@@ -53,4 +53,13 @@ public class Premiun extends marcas {
         this.tipo = tipo;
     }
 
+/*    public void mostrar(){
+        System.out.println("nombre=" + getNombre() + ", lema=" + getLema() + ", a\u00f1o_de_fundacion=" + getAño_de_fundacion() + ", a\u00f1o_que_seintegro=" + getAño_que_seintegro() + ", Fundador=" + getFundador() + ", total_ventas=" + getTotal_ventas() + ", Presidente=" + getPresidente() + ", num_modelos=" + getNum_modelos()+ "nombre_de_su_divisi\u00f3n_deportiva=" + nombre_de_su_división_deportiva + ", nombre_de_su_divisi\u00f3n_de_lujo=" + nombre_de_su_división_de_lujo + ", tipo=" + tipo );
+    }*/
+
+    @Override
+    public String toString() {
+        return super.toString()+"Premiun{" + "nombre_de_su_divisi\u00f3n_deportiva=" + nombre_de_su_división_deportiva + ", nombre_de_su_divisi\u00f3n_de_lujo=" + nombre_de_su_división_de_lujo + ", tipo=" + tipo + '}';
+    }
+    
 }
