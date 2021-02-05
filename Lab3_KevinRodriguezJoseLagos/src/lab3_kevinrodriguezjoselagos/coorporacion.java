@@ -12,13 +12,16 @@ import java.util.ArrayList;
  * @author Kevin
  */
 public class coorporacion {
+
     private String nombre;
     private String sede;
     private int año_fundacion;
     private String Presidente;
     private int total_empleados;
     private int cantidad_de_autos;
-     ArrayList <marcas> lista=new ArrayList();
+    ArrayList<marcas> Marca = new ArrayList();
+    ArrayList<fabricas> Fabricas = new ArrayList();
+    ArrayList<diviciones> Divisiones = new ArrayList();
 
     public coorporacion() {
     }
@@ -80,18 +83,33 @@ public class coorporacion {
         this.cantidad_de_autos = cantidad_de_autos;
     }
 
-    public ArrayList<marcas> getLista() {
-        return lista;
+    public ArrayList<marcas> getMarca() {
+        return Marca;
     }
 
-    public void setLista(ArrayList<marcas> lista) {
-        this.lista = lista;
+    public void setMarca(ArrayList<marcas> Marca) {
+        this.Marca = Marca;
+    }
+
+    public ArrayList<fabricas> getFabricas() {
+        return Fabricas;
+    }
+
+    public void setFabricas(ArrayList<fabricas> Fabricas) {
+        this.Fabricas = Fabricas;
+    }
+
+    public ArrayList<diviciones> getDivisiones() {
+        return Divisiones;
+    }
+
+    public void setDivisiones(ArrayList<diviciones> Divisiones) {
+        this.Divisiones = Divisiones;
     }
 
     @Override
     public String toString() {
-        return "coorporacion{" + "nombre=" + nombre + ", sede=" + sede + ", a\u00f1o_fundacion=" + año_fundacion + ", Presidente=" + Presidente + ", total_empleados=" + total_empleados + ", cantidad_de_autos=" + cantidad_de_autos + ", lista=" + lista + '}';
+        return "coorporacion{" + "nombre=" + nombre + ", sede=" + sede + ", a\u00f1o_fundacion=" + año_fundacion + ", Presidente=" + Presidente + ", total_empleados=" + total_empleados + ", cantidad_de_autos=" + cantidad_de_autos + ", Marca=" + Marca + ", Fabricas=" + Fabricas + ", Divisiones=" + Divisiones + '}';
     }
 
-   
 }

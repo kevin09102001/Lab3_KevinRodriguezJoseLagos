@@ -10,6 +10,7 @@ package lab3_kevinrodriguezjoselagos;
  * @author Kevin
  */
 public class modelos {
+
     protected String Nombre_Modelo;
     protected int Año_Fabricacion;
     protected String Tipo_de_motor;
@@ -81,7 +82,5 @@ public class modelos {
     public String toString() {
         return "modelos{" + "Nombre_Modelo=" + Nombre_Modelo + ", A\u00f1o_Fabricacion=" + Año_Fabricacion + ", Tipo_de_motor=" + Tipo_de_motor + ", cilindrada_del_motor=" + cilindrada_del_motor + ", precio=" + precio + ", Tecologias=" + Tecologias + '}';
     }
-    
-    
-   
+
 }

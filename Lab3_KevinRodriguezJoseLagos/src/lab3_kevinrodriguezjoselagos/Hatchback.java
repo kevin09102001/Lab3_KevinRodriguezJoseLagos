@@ -9,9 +9,10 @@ package lab3_kevinrodriguezjoselagos;
  *
  * @author Kevin
  */
-public class Hatchback extends modelos{
+public class Hatchback extends modelos {
+
     protected int capacidad_de_maletero;
-     protected double Longitud_total;
+    protected double Longitud_total;
     protected int bolsas_de_aire;
 
     public Hatchback() {
@@ -51,11 +52,7 @@ public class Hatchback extends modelos{
 
     @Override
     public String toString() {
-        return super.toString()+" Hatchback{" + "capacidad_de_maletero=" + capacidad_de_maletero + ", Longitud_total=" + Longitud_total + ", bolsas_de_aire=" + bolsas_de_aire + '}';
+        return super.toString() + " Hatchback{" + "capacidad_de_maletero=" + capacidad_de_maletero + ", Longitud_total=" + Longitud_total + ", bolsas_de_aire=" + bolsas_de_aire + '}';
     }
-    
-    
-    
-    
-   
+
 }

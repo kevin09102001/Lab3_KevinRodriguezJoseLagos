@@ -10,6 +10,7 @@ package lab3_kevinrodriguezjoselagos;
  * @author Kevin
  */
 public class Generalista extends marcas {
+
     protected String tipo;
 
     public Generalista() {
@@ -35,7 +36,7 @@ public class Generalista extends marcas {
 
     @Override
     public String toString() {
-        return super.toString()+"Generalista{" + "tipo=" + tipo + '}';
+        return super.toString() + "Generalista{" + "tipo=" + tipo + '}';
     }
 
 }

@@ -11,7 +11,8 @@ import java.util.ArrayList;
  *
  * @author Kevin
  */
-public class Sedán extends modelos{
+public class Sedán extends modelos {
+
     protected String androidPlay;
     protected String androidAuto;
     protected ArrayList<String> asistente;
@@ -62,7 +63,4 @@ public class Sedán extends modelos{
         return super.toString() + "androidPlay=" + androidPlay + ", androidAuto=" + androidAuto + ", asistente=" + asistente + '}';
     }
 
-   
-    
-    
 }

@@ -10,6 +10,7 @@ package lab3_kevinrodriguezjoselagos;
  * @author Kevin
  */
 public class marcas {
+
     protected String nombre;
     protected String lema;
     protected int año_de_fundacion;
@@ -101,6 +102,5 @@ public class marcas {
     public String toString() {
         return "marcas{" + "nombre=" + nombre + ", lema=" + lema + ", a\u00f1o_de_fundacion=" + año_de_fundacion + ", a\u00f1o_que_seintegro=" + año_que_seintegro + ", Fundador=" + Fundador + ", total_ventas=" + total_ventas + ", Presidente=" + Presidente + ", num_modelos=" + num_modelos + '}';
     }
-    
-    
+
 }
