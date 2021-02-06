@@ -205,11 +205,12 @@ public class Lab3_KevinRodriguezJoseLagos {
                                 int posicion = Integer.parseInt(JOptionPane.showInputDialog("1. Nombre\n"
                                         + "2. Slogan o lema\n"
                                         + "3. Año de fundacion\n"
-                                        + "4. Año que se integró a la corp.\n"
+                                        + "4. Año que se integró a la corp."
                                         + "5. Nombre del fundador\n"
                                         + "6. Numero de ventas anuales\n"
-                                        + "7. Nombre del CEO o presidente\n"
+                                        + "7. Nombre del CEO o presidente"
                                         + "8. Numero de modelos\n"
+                                        + "9. Tipo"
                                         + "Ingrese su opcion"));
                                 switch (posicion) {
                                     case 1: {
@@ -316,7 +317,7 @@ public class Lab3_KevinRodriguezJoseLagos {
                                     double longitud = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la longitud"));
                                     int bolsas = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de boslas de aire"));
                                     
-                                    listado_model.add(new Hatchback(hatch, longitud, bolsas,nombre, año, motor, cilindrada, precio, tecno));
+                                    listado_model.add(new Hatchback(hatch, longitud, bolsas, nombre, año, motor, cilindrada, precio, tecno));
                                     break;
                                 }
                                 case 2:{
@@ -328,7 +329,7 @@ public class Lab3_KevinRodriguezJoseLagos {
                                         asist.add(JOptionPane.showInputDialog("Ingrese el nombre de un asistente"));
                                         res = JOptionPane.showInputDialog("Desea agregar otro asistente? [s/n]").charAt(0);
                                     }
-                                    listado_model.add(new Sedán(modelo, SN, asist,nombre, año, motor, cilindrada, precio, tecno));
+                                    listado_model.add(new Sedán(modelo, SN, asist, nombre, año, motor, cilindrada, precio, tecno));
                                     break;
                                 }
                                 case 3:{
@@ -336,7 +337,7 @@ public class Lab3_KevinRodriguezJoseLagos {
                                     int pasajeros = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad maxima de pasajeros"));
                                     String navegador = JOptionPane.showInputDialog("Ingrese el nombre del navegador");
                                     
-                                    listado_model.add(new SUV(modelo, pasajeros, navegador,nombre, año, motor, cilindrada, precio, tecno));
+                                    listado_model.add(new SUV(modelo, pasajeros, navegador, nombre, año, motor, cilindrada, precio, tecno));
                                     break;
                                 }
                             }
@@ -514,18 +515,98 @@ public class Lab3_KevinRodriguezJoseLagos {
                             break;
                         }
                         default:{
-                            
+                            JOptionPane.showMessageDialog(null, "Opcion invalida");
                             break;
                         }
                     }
                     break;
                 }
                 case 5: {
+                    int option = Integer.parseInt(JOptionPane.showInputDialog("      Division Tecnologica\n"
+                            + "1. Agregar Division\n"
+                            + "2. Modificar Division\n"
+                            + "3. Eliminar Division\n"
+                            + "4. Listar Division\n"
+                            + "Ingrese su opcion"));
+                    switch (option) {
+                        case 1: {
+                            String nombre = JOptionPane.showInputDialog("Ingrese el nombre de la fabrica");
+                            String año = JOptionPane.showInputDialog("Ingrese el año de creacion");
+                            String campo = JOptionPane.showInputDialog("Ingrese el campo al que se dedican");
+                            String tech = JOptionPane.showInputDialog("Ingrese las tecnologias ya desarrolladas");
 
+                            listado_divTec.add(new diviciones(nombre, año, campo, tech));
+                        }
+                        break;
+                        case 2:{
+                            int position = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la poscion de la fabrica a modificar"));
+
+                            if (listado_divTec.get(position) instanceof diviciones) {
+                                int posicion = Integer.parseInt(JOptionPane.showInputDialog("1. Nombre\n"
+                                        + "2. Año\n"
+                                        + "3. Campo\n"
+                                        + "4. Tecnologia\n"));
+                                switch (posicion) {
+                                    case 1: {
+                                        String aux = JOptionPane.showInputDialog("Ingrese el nuevo nombre");
+                                        ((diviciones) listado_divTec.get(position)).setNombre(aux);
+                                        break;
+                                    }
+                                    case 2: {
+                                        String aux = JOptionPane.showInputDialog("Ingrese el año");
+                                       ((diviciones) listado_divTec.get(position)).setAñocre(aux);
+                                        break;
+                                    }
+                                    case 3: {
+                                        String aux = JOptionPane.showInputDialog("Ingrese el campo");
+                                        ((diviciones) listado_divTec.get(position)).setCampodedi(aux);
+                                        break;
+                                    }
+                                    case 4: {
+                                        String aux = JOptionPane.showInputDialog("Ingrese la tecnologia");
+                                       ((diviciones) listado_divTec.get(position)).setTecnologia_desarrollada(aux);
+                                        break;
+                                    }
+                                   
+                                    default: {
+                                        JOptionPane.showMessageDialog(null, "Opcion invalida");
+                                        break;
+                                    }
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "La posicion que ingreso no se encuentra en la lista o es invalida");
+                            }
+                            break;
+                        }
+                        case 3:{
+                             int position = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion de la corporacion que quiere eliminar"));
+
+                            if (listado_divTec.get(position) instanceof diviciones) {
+                                listado_divTec.remove(position);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "La posicion que ingreso no se encuentra en la lista o es invalida");
+                            }
+                            break;
+                        }
+                        case 4:{
+                            String salida = "";
+                            for (Object t : listado_divTec) {
+                                if (t instanceof diviciones) {
+                                    salida += listado_divTec.indexOf(t) + " - " + t + "\n";
+                                }
+                            }
+                            JOptionPane.showMessageDialog(null, salida);
+                            break;
+                        }
+                        default:{
+                            
+                            break;
+                        }
+                    }
                     break;
                 }
                 case 6: {
-
+                    
                     break;
                 }
                 case 7: {
