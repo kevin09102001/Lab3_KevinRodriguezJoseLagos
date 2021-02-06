@@ -606,7 +606,38 @@ public class Lab3_KevinRodriguezJoseLagos {
                     break;
                 }
                 case 6: {
+                     String corp = "";
+                    String marcas = "";
+                    String modelos = "";
+                    String fabrica = "";
+                    String div = "";
+                    for (Object t : listado_corp) {
+                        if (t instanceof coorporacion) {
+                            corp += listado_corp.indexOf(t) + " - " + t + "\n";
+                        }
+                    }
+                    for (Object t : listado_marca) {
+                        if (t instanceof Premiun || t instanceof Generalista) {
+                            marcas += listado_marca.indexOf(t) + " - " + t + "\n";
+                        }
+                    }
+                    for (Object t : listado_model) {
+                        if (t instanceof Hatchback || t instanceof Sedán || t instanceof SUV) {
+                            modelos += listado_model.indexOf(t) + " - " + t + "\n";
+                        }
+                    }
+                    for (Object t : listado_fabric) {
+                        if (t instanceof fabricas) {
+                            fabrica += listado_fabric.indexOf(t) + " - " + t + "\n";
+                        }
+                    }
+                    for (Object t : listado_divTec) {
+                        if (t instanceof diviciones) {
+                            div += listado_divTec.indexOf(t) + " - " + t + "\n";
+                        }
+                    }
                     
+                    JOptionPane.showMessageDialog(null, "Marcas: \n"+marcas+"\nModelos:\n"+modelos+"\nFabricas:\n"+fabrica+"\nDiviciones Tecnologicas:\n"+div);
                     break;
                 }
                 case 7: {
