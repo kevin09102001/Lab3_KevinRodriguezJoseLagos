@@ -109,7 +109,7 @@ public class coorporacion {
 
     @Override
     public String toString() {
-        return "coorporacion{" + "nombre=" + nombre + ", sede=" + sede + ", a\u00f1o_fundacion=" + año_fundacion + ", Presidente=" + Presidente + ", total_empleados=" + total_empleados + ", cantidad_de_autos=" + cantidad_de_autos + ", Marca=" + Marca + ", Fabricas=" + Fabricas + ", Divisiones=" + Divisiones + '}';
+        return "coorporacion{" + "nombre=" + nombre + ", sede=" + sede + ", a\u00f1o_fundacion=" + año_fundacion + ", Presidente=" + Presidente + ", total_empleados=" + total_empleados + ", cantidad_de_autos=" + cantidad_de_autos+'}';
     }
 
 }

@@ -19,7 +19,6 @@ public class fabricas {
     protected String Tipo_de_carroceria;
     protected int cant_Empleados;
     protected int cant_Autos;
-    ArrayList<marcas> nombresy = new ArrayList();
 
     public fabricas() {
     }
@@ -81,17 +80,9 @@ public class fabricas {
         this.cant_Autos = cant_Autos;
     }
 
-    public ArrayList<marcas> getNombresy() {
-        return nombresy;
-    }
-
-    public void setNombresy(ArrayList<marcas> nombresy) {
-        this.nombresy = nombresy;
-    }
-
     @Override
     public String toString() {
-        return "fabricas{" + "nombre_fabrica=" + nombre_fabrica + ", ubicacion=" + ubicacion + ", Cantidad_maxima_fabricar=" + Cantidad_maxima_fabricar + ", Tipo_de_carroceria=" + Tipo_de_carroceria + ", cant_Empleados=" + cant_Empleados + ", cant_Autos=" + cant_Autos + ", nombresy=" + ((marcas) nombresy.get(0)).getNombre() + '}';
+        return "fabricas{" + "nombre_fabrica=" + nombre_fabrica + ", ubicacion=" + ubicacion + ", Cantidad_maxima_fabricar=" + Cantidad_maxima_fabricar + ", Tipo_de_carroceria=" + Tipo_de_carroceria + ", cant_Empleados=" + cant_Empleados + ", cant_Autos=" + cant_Autos + '}';
     }
 
 }

@@ -19,6 +19,12 @@ public class Hatchback extends modelos {
         super();
     }
 
+    public Hatchback(int capacidad_de_maletero, double Longitud_total, int bolsas_de_aire) {
+        this.capacidad_de_maletero = capacidad_de_maletero;
+        this.Longitud_total = Longitud_total;
+        this.bolsas_de_aire = bolsas_de_aire;
+    }
+
     public Hatchback(int capacidad_de_maletero, double Longitud_total, int bolsas_de_aire, String Nombre_Modelo, int Año_Fabricacion, String Tipo_de_motor, int cilindrada_del_motor, int precio, String Tecologias) {
         super(Nombre_Modelo, Año_Fabricacion, Tipo_de_motor, cilindrada_del_motor, precio, Tecologias);
         this.capacidad_de_maletero = capacidad_de_maletero;

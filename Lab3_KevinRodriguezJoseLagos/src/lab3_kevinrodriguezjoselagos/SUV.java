@@ -19,6 +19,12 @@ public class SUV extends modelos {
         super();
     }
 
+    public SUV(String cuatroxcuatro, int cant, String Nombre_navegador) {
+        this.cuatroxcuatro = cuatroxcuatro;
+        this.cant = cant;
+        this.Nombre_navegador = Nombre_navegador;
+    }
+
     public SUV(String cuatroxcuatro, int cant, String Nombre_navegador, String Nombre_Modelo, int Año_Fabricacion, String Tipo_de_motor, int cilindrada_del_motor, int precio, String Tecologias) {
         super(Nombre_Modelo, Año_Fabricacion, Tipo_de_motor, cilindrada_del_motor, precio, Tecologias);
         this.cuatroxcuatro = cuatroxcuatro;

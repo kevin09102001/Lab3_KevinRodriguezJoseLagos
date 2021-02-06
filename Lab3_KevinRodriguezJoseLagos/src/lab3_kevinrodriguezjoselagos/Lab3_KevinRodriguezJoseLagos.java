@@ -156,46 +156,46 @@ public class Lab3_KevinRodriguezJoseLagos {
                             int ventas = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de ventas anuales"));
                             String ceo = JOptionPane.showInputDialog("Ingrese el nombre del CEO o el presidente");
                             int modelos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de modelos"));
-                            marcas x = new marcas(nombre, slogan, año, año_i, fundador, ventas, ceo, modelos);
-
-                            int op = Integer.parseInt("Ingrese la clase de marca\n"
+                            int op = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la clase de marca\n"
                                     + "1. Premium\n"
-                                    + "2. Generalista");
-                            if (op == 1) {
+                                    + "2. Generalista"));
+                            if(op == 1){
                                 String div_dep = JOptionPane.showInputDialog("Ingrese nombre de la division deportiva");
                                 String div_lujo = JOptionPane.showInputDialog("Ingrese nombre de la division de lujo");
                                 int carroceria = Integer.parseInt(JOptionPane.showInputDialog("Ingrese tipo de carroceria\n"
                                         + "1. Sedán\n"
                                         + "2. Hatchback\n"
                                         + "3. Coupé"));
-                                switch (carroceria) {
-                                    case 1: {
-                                        listado_marca.add(new Premiun(div_dep, div_lujo, "Sedan"));
+                                switch(carroceria){
+                                    case 1:{
+                                        listado_marca.add(new Premiun(div_dep, div_lujo, "Sedan",nombre, slogan, año, año_i, fundador, ventas, ceo, modelos));
                                         break;
                                     }
-                                    case 2: {
-                                        listado_marca.add(new Premiun(div_dep, div_lujo, "Hatchback"));
+                                    case 2:{
+                                        listado_marca.add(new Premiun(div_dep, div_lujo, "Hatchback",nombre, slogan, año, año_i, fundador, ventas, ceo, modelos));
+                                       
                                         break;
                                     }
-                                    case 3: {
-                                        listado_marca.add(new Premiun(div_dep, div_lujo, "Coupé"));
-                                        break;
-                                    }
-                                }
-                            } else if (op == 2) {
-                                int Op = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la marca su tipo\n"
-                                        + "1. Low-cost\n"
-                                        + "2.Semi-premium"));
-                                switch (Op) {
-                                    case 1: {
-                                        listado_marca.add(new Generalista("low-cost"));
-                                    }
-                                    case 2: {
-                                        listado_marca.add(new Generalista("semi-premium"));
+                                    case 3:{
+                                        
+                                        listado_marca.add(new Premiun(div_dep, div_lujo, "Hatchback",nombre, slogan, año, año_i, fundador, ventas, ceo, modelos));                                        break;
                                     }
                                 }
                             }
-
+                            else if(op == 2){
+                                int Op = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la marca su tipo\n"
+                                        + "1. Low-cost\n"
+                                        + "2.Semi-premium"));
+                                switch (Op){
+                                    case 1:{
+                                        listado_marca.add(new Generalista("low-cost",nombre, slogan, año, año_i, fundador, ventas, ceo, modelos));
+                                    }
+                                    case 2:{
+                                        listado_marca.add(new Generalista("semi-premium",nombre, slogan, año, año_i, fundador, ventas, ceo, modelos));
+                                    }
+                                }
+                            }
+                           
                             break;
                         }
                         case 2: {
@@ -205,10 +205,10 @@ public class Lab3_KevinRodriguezJoseLagos {
                                 int posicion = Integer.parseInt(JOptionPane.showInputDialog("1. Nombre\n"
                                         + "2. Slogan o lema\n"
                                         + "3. Año de fundacion\n"
-                                        + "4. Año que se integró a la corp."
+                                        + "4. Año que se integró a la corp.\n"
                                         + "5. Nombre del fundador\n"
                                         + "6. Numero de ventas anuales\n"
-                                        + "7. Nombre del CEO o presidente"
+                                        + "7. Nombre del CEO o presidente\n"
                                         + "8. Numero de modelos\n"
                                         + "Ingrese su opcion"));
                                 switch (posicion) {
@@ -275,7 +275,7 @@ public class Lab3_KevinRodriguezJoseLagos {
                         case 4: {
                             String salida = "";
                             for (Object t : listado_marca) {
-                                if (t instanceof marcas) {
+                                if (t instanceof Premiun || t instanceof Generalista) {
                                     salida += listado_marca.indexOf(t) + " - " + t + "\n";
                                 }
                             }
@@ -304,8 +304,42 @@ public class Lab3_KevinRodriguezJoseLagos {
                             int cilindrada = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tamaño del motor"));
                             int precio = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el precio"));
                             String tecno = JOptionPane.showInputDialog("Ingrese las tecnologias que contiene");
-
-                            listado_model.add(new modelos(nombre, año, motor, cilindrada, precio, tecno));
+                            modelos y = new modelos(nombre, año, motor, cilindrada, precio, tecno);
+                            
+                            int op = Integer.parseInt(JOptionPane.showInputDialog("Ingrese carroceria\n"
+                                    + "1. Hatchback\n"
+                                    + "2. Sedán\n"
+                                    + "3. SUV"));
+                            switch (op){
+                                case 1:{
+                                    int hatch = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la capacidad"));
+                                    double longitud = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la longitud"));
+                                    int bolsas = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de boslas de aire"));
+                                    
+                                    listado_model.add(new Hatchback(hatch, longitud, bolsas,nombre, año, motor, cilindrada, precio, tecno));
+                                    break;
+                                }
+                                case 2:{
+                                    String modelo = JOptionPane.showInputDialog("Ingrese el modelo");
+                                    String SN = JOptionPane.showInputDialog("AndroidPlay? [si/no]");
+                                    ArrayList<String> asist = new ArrayList();
+                                    char res = 's';
+                                    while (res == 's'){
+                                        asist.add(JOptionPane.showInputDialog("Ingrese el nombre de un asistente"));
+                                        res = JOptionPane.showInputDialog("Desea agregar otro asistente? [s/n]").charAt(0);
+                                    }
+                                    listado_model.add(new Sedán(modelo, SN, asist,nombre, año, motor, cilindrada, precio, tecno));
+                                    break;
+                                }
+                                case 3:{
+                                    String modelo = JOptionPane.showInputDialog("Es modelo 4x4? [si/no]");
+                                    int pasajeros = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad maxima de pasajeros"));
+                                    String navegador = JOptionPane.showInputDialog("Ingrese el nombre del navegador");
+                                    
+                                    listado_model.add(new SUV(modelo, pasajeros, navegador,nombre, año, motor, cilindrada, precio, tecno));
+                                    break;
+                                }
+                            }
                             break;
                         }
                         case 2: {
@@ -373,7 +407,7 @@ public class Lab3_KevinRodriguezJoseLagos {
                         case 4: {
                             String salida = "";
                             for (Object t : listado_model) {
-                                if (t instanceof modelos) {
+                                if (t instanceof Hatchback || t instanceof Sedán || t instanceof SUV) {
                                     salida += listado_model.indexOf(t) + " - " + t + "\n";
                                 }
                             }
@@ -406,7 +440,8 @@ public class Lab3_KevinRodriguezJoseLagos {
 
                             listado_fabric.add(new fabricas(nombre, ubicacion, cantidad_max, carroceria, empleados, cantidad_auto));
                         }
-                        case 2: {
+                        break;
+                        case 2:{
                             int position = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la poscion de la fabrica a modificar"));
 
                             if (listado_fabric.get(position) instanceof fabricas) {
@@ -458,8 +493,8 @@ public class Lab3_KevinRodriguezJoseLagos {
                             }
                             break;
                         }
-                        case 3: {
-                            int position = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion de la corporacion que quiere eliminar"));
+                        case 3:{
+                             int position = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion de la corporacion que quiere eliminar"));
 
                             if (listado_fabric.get(position) instanceof fabricas) {
                                 listado_fabric.remove(position);
@@ -468,7 +503,7 @@ public class Lab3_KevinRodriguezJoseLagos {
                             }
                             break;
                         }
-                        case 4: {
+                        case 4:{
                             String salida = "";
                             for (Object t : listado_fabric) {
                                 if (t instanceof fabricas) {
@@ -478,8 +513,8 @@ public class Lab3_KevinRodriguezJoseLagos {
                             JOptionPane.showMessageDialog(null, salida);
                             break;
                         }
-                        default: {
-
+                        default:{
+                            
                             break;
                         }
                     }
