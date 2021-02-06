@@ -205,12 +205,12 @@ public class Lab3_KevinRodriguezJoseLagos {
                                 int posicion = Integer.parseInt(JOptionPane.showInputDialog("1. Nombre\n"
                                         + "2. Slogan o lema\n"
                                         + "3. Año de fundacion\n"
-                                        + "4. Año que se integró a la corp."
+                                        + "4. Año que se integró a la corp.\n"
                                         + "5. Nombre del fundador\n"
                                         + "6. Numero de ventas anuales\n"
-                                        + "7. Nombre del CEO o presidente"
+                                        + "7. Nombre del CEO o presidente\n"
                                         + "8. Numero de modelos\n"
-                                        + "9. Tipo"
+                                        + "9. Tipo\n"
                                         + "Ingrese su opcion"));
                                 switch (posicion) {
                                     case 1: {
